@@ -13,19 +13,21 @@ function addExtra(str) {
 }
 const mySelect = document.createElement('select');
 const empty = document.createElement('option');
-empty.text = ' ';
-empty.value = '1';
-mySelect.add(empty);
+addEmpty();
 evilExtras.append(mySelect);
+
+function addEmpty() {
+  empty.text = ' ';
+  empty.value = '1';
+  mySelect.add(empty);
+}
 
 function updateExtras() {
   /* din map kode her... I updateExtras skal du bruge map til at generere en text til .innerHTML. hvis du har kodet rigtigt, vises dine valg under input feltet.  */
   myExtrasListElement.innerHTML = myExtras.join(', ');
-
   mySelect.innerHTML = '';
-  const empty = document.createElement('option');
-  empty.text = 'Fjern extras her';
-  mySelect.add(empty);
+
+  addEmpty();
   myExtras.forEach((extra) => {
     const option = document.createElement('option');
     option.text = extra;
